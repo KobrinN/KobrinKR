@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+<main>
+    <article>
+<h6>регистрация</h6>
+<img th:src= "@{/images/post9.png}" alt="cat"/>
+        <div>
+            <div>
+                <p class="ass">123</p>
+            </div>
+            <form action="/api/v1/registration" method="post">
+                <label>
+                    <input name="username" placeholder="username">
+                    <input name="password" placeholder="password">
+                    <input type="submit" value="Регистрация">
+                </label>
+            </form>
+        </div>
+    </article>
+    <aside></aside>
+</main>
+<footer></footer>
+
+</body>
+</html>

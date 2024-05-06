@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    password: 23122002Nik
+    url: jdbc:postgresql://localhost:1234/kr_kobrin
+    username: postgres
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

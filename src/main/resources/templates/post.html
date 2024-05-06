@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+<article>
+    <div>
+        <img th:src="@{${post.getImage()}}" alt="post">
+    </div>
+    <div>
+        <table>
+            <td th:text="${post.getName()}"></td>
+            <td th:text="${post.getDescription()}"></td>
+        </table>
+    </div>
+    <div>
+        <p th:utext="${post.getText()}"></p>
+    </div>
+</article>
+<aside>
+</aside>
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+</body>
+</html>

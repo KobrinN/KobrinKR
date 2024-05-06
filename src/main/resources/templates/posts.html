@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+    <article>
+        <table>
+            <tr>
+                <th>image</th>
+                <th>name</th>
+                <th>description</th>
+            </tr>
+            <tr th:each="post : ${posts}">
+                <td><img th:src="@{${post.getImage()}}" alt="post"></td>
+                <td><a th:href="@{(${post.getId()})}" th:text="${post.getName()}"></a></td>
+                <td th:text="${post.getDescription()}"></td>
+            </tr>
+        </table>
+    </article>
+
+    <aside>
+    </aside>
+    <script type="text/javascript">
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
+</body>
+</html>

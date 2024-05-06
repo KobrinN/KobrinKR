@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – Classic editor</title>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+</head>
+<body>
+<h1>Classic editor</h1>
+<div>
+    <form method="POST" th:object = "${Post}" enctype="multipart/form-data" action="/api/v1/post/add">
+        <label>
+            <input name="name" placeholder="name" th:field ="*{name}">
+            <input name="description" placeholder="description" th:field ="*{description}">
+        </label>
+        <div>
+            <textarea class="ckeditor" id="editor1" cols="80"  name="editor1" th:field="*{text}" rows="10" maxlength="100"></textarea>
+        </div>
+        <table>
+            <tr><td>File to upload:</td><td><input type="file" th:field = "*{image}" name="image"/></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        </table>
+    </form>
+</div>
+
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor1' ), {
+            toolbar: {
+                items: [
+                    'alignment',
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'outdent',
+                    'indent',
+                    '|',
+                    'blockQuote',
+                    'insertTable',
+                    'undo',
+                    'redo'],
+                shouldNotGroupWhenFull: false
+            }
+        } )
+        .catch( error => {
+            console.log( error );
+        } );
+</script>
+</body>
+</html>
