@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Getter
 @Setter
 public class FileUploadProperties {
-    private String locationPost = "C:\\Users\\dns\\Desktop\\программирование\\семестр №6\\веб\\kobrinKR\\src\\main\\resources\\static\\images";
+    private String locationExhibit = "C:\\Users\\dns\\Desktop\\программирование\\семестр №6\\веб\\kobrinKR\\src\\main\\resources\\static\\images";
     private String locationProfile= "C:\\Users\\dns\\Desktop\\программирование\\семестр №6\\веб\\kobrinKR\\src\\main\\resources\\static\\images";
 
 }

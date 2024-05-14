@@ -20,6 +20,14 @@
             </tr>
         </table>
     </article>
+    <div class="box">
+        <form th:action="@{../delete/(${exhibit.getId()})}" method="post">
+            <input type="submit" placeholder="Удалить">
+        </form>
+        <form th:action="@{../edit/(${exhibit.getId()})}" method="post">
+            <input type="submit" placeholder="Изменить">
+        </form>
+    </div>
 
     <aside>
     </aside>

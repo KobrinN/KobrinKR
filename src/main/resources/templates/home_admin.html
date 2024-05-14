@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+    <header>
+        <nav>
+            <nav>
+                <ul>
+                    <li><a th:href="@{../v1/exhibit/all}">Экспонаты</a></li>
+                    <li><a th:href="@{../v1/user/all}">Пользователи</a></li>
+                    <li><a th:href="@{../v1/logout}">Выход</a></li>
+                </ul>
+            </nav>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <div class="container">
+                <div class="img">
+                    <img src="/images/home.jpg" alt="Музей">
+                </div>
+                <div class="name">
+                    Добро пожаловать в музей!
+                </div>
+            </div>
+        </article>
+    </main>
+    <footer></footer>
+</body>
+</html>

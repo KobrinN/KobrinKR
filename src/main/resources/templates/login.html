@@ -3,21 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Вход</title>
+  <title>Вход в 🏛МУЗЕЙ🏛</title>
   <link rel="stylesheet" th:href="@{/styles/styles.css}" />
 </head>
 <body>
-<header>Регистрация</header>
+<header>
+  <nav>
+    <nav>
+      <ul>
+        <li><a href="/api/v1/home">Главная</a></li>
+        <li><a href="/api/v1/registration">Регистрация</a></li>
+      </ul>
+    </nav>
+  </nav>
+</header>
 <main>
   <article>
     <div>
-      <p class="ass">123</p>
       <form action="/api/v1/login" method="post">
-        <label>
-          <input name="username" placeholder="username">
-          <input name="password" placeholder="password">
-          <input type="submit" value="Вход">
-        </label>
+        <div class="container">
+          <div class="img">
+            <img src="/images/home.jpg" alt="Музей">
+          </div>
+          <div>
+            <div>
+              <input type="text" name="username" placeholder="username">
+            </div>
+            <div>
+              <input type="text" name="password" id="password" placeholder="password">
+            </div>
+            <div class="div_bottom">
+              <button class="bottom_update">Вход</button>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </article>

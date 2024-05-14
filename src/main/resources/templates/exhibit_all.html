@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{../home}">Главная</a></li>
+                <li><a th:href="@{../logout}">Выход</a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>
+<main>
+    <article>
+        <table>
+            <tr th:each="exhibit : ${exhibits}">
+                <td class="box" colspan="3">
+                    <img th:src="@{${exhibit.getImage()}}" alt="image">
+                </td>
+                <td colspan="6"><a th:href="@{(${exhibit.getId()})}" th:text="${exhibit.getName()}"></a></td>
+            </tr>
+        </table>
+    </article>
+</main>
+<footer></footer>
+</body>
+</html>

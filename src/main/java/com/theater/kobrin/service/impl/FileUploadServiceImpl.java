@@ -22,28 +22,28 @@ import java.nio.file.StandardCopyOption;
 @RequiredArgsConstructor
 public class FileUploadServiceImpl implements FileUploadService {
 
-    private final Path rootLocationPost;
+    private final Path rootLocationExhibit;
     private final Path rootLocationProfile;
 
     @Autowired
     public FileUploadServiceImpl(FileUploadProperties properties) {
-        if (properties.getLocationPost().trim().isEmpty() || properties.getLocationProfile().trim().isEmpty() ) {
+        if (properties.getLocationExhibit().trim().isEmpty() || properties.getLocationProfile().trim().isEmpty() ) {
             throw new StorageException("File upload location can not be Empty.");
         }
-        this.rootLocationPost = Paths.get(properties.getLocationPost());
+        this.rootLocationExhibit = Paths.get(properties.getLocationExhibit());
         this.rootLocationProfile = Paths.get(properties.getLocationProfile());
     }
 
     @Override
-    public void storePost(MultipartFile file, String fileName) {
+    public void storeExhibit(MultipartFile file, String fileName) {
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file.");
             }
-            Path destinationFile = this.rootLocationPost.resolve(
+            Path destinationFile = this.rootLocationExhibit.resolve(
                     Paths.get(fileName))
                     .normalize().toAbsolutePath();
-            if (!destinationFile.getParent().equals(this.rootLocationPost.toAbsolutePath())) {
+            if (!destinationFile.getParent().equals(this.rootLocationExhibit.toAbsolutePath())) {
                 throw new StorageException(
                         "Cannot store file outside current directory.");
             }
@@ -56,7 +56,7 @@ public class FileUploadServiceImpl implements FileUploadService {
         }
     }
     @Override
-    public void storeProfile(MultipartFile file, String fileName) {
+    public void storeProfile(MultipartFile file, String fileName){
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file.");
@@ -78,9 +78,15 @@ public class FileUploadServiceImpl implements FileUploadService {
     }
 
     @Override
-    public void deleteAllPost() {
-        FileSystemUtils.deleteRecursively(rootLocationPost.toFile());
+    public void deleteAllExhibit() {
+        FileSystemUtils.deleteRecursively(rootLocationExhibit.toFile());
     }
+
+    @Override
+    public boolean deleteExhibit(File path) {
+        return path.delete();
+    }
+
 
     @Override
     public void deleteAllProfile() {
@@ -89,7 +95,7 @@ public class FileUploadServiceImpl implements FileUploadService {
     @Override
     public void init() {
         try {
-            Files.createDirectories(rootLocationPost);
+            Files.createDirectories(rootLocationExhibit);
             Files.createDirectories(rootLocationProfile);
         }
         catch (IOException e) {

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+
+</head>
+<body>
+<header>
+    <nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{../home}">Главная</a></li>
+                <li><a th:href="@{../exhibit/all}">Экспонаты</a></li>
+                <li><a th:href="@{../user/all}">Пользователи</a></li>
+                <li><a th:href="@{../logout}">Выход</a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>
+<main>
+    <article>
+        <div th:text="${message}"></div>
+        <form method="POST" th:object = "${Exhibit}" enctype="multipart/form-data" action="/api/v1/exhibit/add">
+            <label>
+                <input name="name" type="text" th:field ="*{name}">
+            </label>
+            <label class="input-file">
+                <input type="file" th:field = "*{image}" name="image"/>
+                <span>Загрузить</span>
+            </label>
+            <textarea name="description" id="editor" th:field="*{description}"><p>This is some sample content.</p></textarea>
+            <div class="div_bottom">
+                <button class="bottom_update">Добавить</button>
+            </div>
+        </form>
+    </article>
+    <footer>
+
+    </footer>
+</main>
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+            toolbar: {
+                items: [
+                    'alignment',
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'outdent',
+                    'indent',
+                    '|',
+                    'blockQuote',
+                    'insertTable',
+                    'undo',
+                    'redo'],
+                shouldNotGroupWhenFull: false
+            }
+        } )
+        .catch( error => {
+            console.log( error );
+        } );
+</script>
+</body>
+</html>

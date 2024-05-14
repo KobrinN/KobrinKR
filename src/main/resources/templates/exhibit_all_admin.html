@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+<header>
+    <nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{../home}">Главная</a></li>
+                <li><a th:href="@{../exhibit/add}">Добавить</a></li>
+                <li><a th:href="@{../user/all}">Пользователи</a></li>
+                <li><a th:href="@{../logout}">Выход</a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>
+    <main>
+        <article>
+            <table>
+            <tr th:each="exhibit : ${exhibits}">
+                <td class="box" colspan="3">
+                        <img th:src="@{${exhibit.getImage()}}" alt="image">
+                </td>
+                <td colspan="5"><a th:href="@{(${exhibit.getId()})}" th:text="${exhibit.getName()}"></a></td>
+                <td colspan="1">
+                    <div class="div_bottom"><button class="bottom_delete"><a th:href="@{../exhibit/delete(id=${exhibit.getId()})}" th:text="@{Удалить}"></a></button></div>
+                    <div class="div_bottom"><button class="bottom_update"><a th:href="@{../exhibit/edit(id=${exhibit.getId()})}" th:text="@{Изменить}"></a></button></div>
+                </td>
+            </tr>
+            </table>
+        </article>
+    </main>
+    <footer></footer>
+</body>
+</html>

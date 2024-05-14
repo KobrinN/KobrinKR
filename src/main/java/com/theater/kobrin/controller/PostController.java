@@ -4,7 +4,6 @@ import com.theater.kobrin.dto.PostRequest;
 import com.theater.kobrin.exception.NotValidFieldException;
 import com.theater.kobrin.service.PostService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

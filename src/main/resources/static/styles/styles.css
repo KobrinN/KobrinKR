@@ -1,20 +1,259 @@
-.ass {
-    color: green;
-    font-size: 22px;
+html{
+    background-color: cornflowerblue;
 }
-table {
-    border-collapse: collapse;
-    /*убираем пустые промежутки между ячейками*/
-    border: 1px solid grey;
-    /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+.box {
+    position: relative;
+    overflow:hidden;
+    margin: 10px;
+    width:400px;
+    height:224px;
+    word-wrap: break-word;
 }
-th {
-    border: 1px solid grey;
+.img{
+    position: relative;
+    overflow:hidden;
+    margin: 10px;
+    width:400px;
+    height:224px;
+    word-wrap: break-word;
+    float: left;
 }
-td {
-    border: 1px solid grey;
+.name{
+    float: left;
+    margin: 10px;
+    width:60%;
+    height:224px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
 }
-img{
-    max-height: 100px;
-    max-width: 100%;
+.login_registration{
+    margin: 10px;
+    width:60%;
+    vertical-align: center;
+    height:224px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.input[type="text"]{
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    width: 200px;
+    height: 50px;
+}
+.container{
+    overflow: hidden;
+}
+
+.box img {
+    position: absolute;
+    border-radius: 15px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    object-fit:cover;
+    width:400px;
+    height:224px;
+}
+.img img {
+    position: absolute;
+    border-radius: 15px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    object-fit:cover;
+    width:400px;
+    height:224px;
+}
+header {
+    background: white;
+    border-style: solid;
+    margin: 1rem 20rem;
+    border: 1rem 1rem 1rem 1rem;
+    border-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 10px;
+}
+article{
+    background: white;
+    padding: 10px;
+    border-style: solid;
+    margin: 1rem 20rem;
+    border: 1rem 1rem 1rem 1rem;
+    border-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+}
+
+table{
+    table-layout: fixed;
+    width: 100%;
+    border-spacing: 0 10px;
+}
+th,td {
+    word-wrap: break-word;
+    border: 10px;
+}
+td a{
+    font-size: xxx-large;
+}
+tr{
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: xx-large;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.cont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+.div_bottom{
+    margin: 10px;
+}
+.bottom_delete{
+    background-color: red;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    margin: 10px;
+}
+.bottom_delete a{
+    color: white;
+    font-size: medium;
+}
+.bottom_update{
+    background-color: dodgerblue;
+    border-radius: 5px;
+    height: 40px;
+    width: 100px;
+    margin: 10px;
+}
+.bottom_update a{
+    color: black;
+    font-size: medium;
+}
+.comment_user{
+    top: 0%;
+    margin: 8px;
+ }
+.username{
+    font-size: xx-large;
+}
+
+
+
+
+
+
+input[type="text"]{
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 10px;
+    font-size: x-large;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+input[type="file"] {
+
+}
+.input-file {
+    position: relative;
+    display: inline-block;
+}
+.input-file span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-decoration: none;
+    font-size: 14px;
+    vertical-align: middle;
+    color: rgb(255 255 255);
+    text-align: center;
+    border-radius: 4px;
+    background-color: #419152;
+    line-height: 22px;
+    height: 40px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    transition: background-color 0.2s;
+}
+.input-file input[type=file] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+/* Focus */
+.input-file input[type=file]:focus + span {
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+/* Hover/active */
+.input-file:hover span {
+    background-color: #59be6e;
+}
+.input-file:active span {
+    background-color: #2E703A;
+}
+
+/* Disabled */
+.input-file input[type=file]:disabled + span {
+    background-color: #eee;
 }

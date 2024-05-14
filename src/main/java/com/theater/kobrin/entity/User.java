@@ -36,6 +36,8 @@ public class User extends AbstractEntity implements UserDetails {
     private Set<Role> roles;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<Post> posts;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Comment> comments;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

@@ -30,22 +30,21 @@ public class PostServiceImpl implements PostService {
 
         if (!StringUtils.hasText(request.getName()) ||
                 !StringUtils.hasText(request.getDescription()) ||
-                !StringUtils.hasText(request.getText()) ||
-                request.getImage().isEmpty()) throw new NotValidFieldException("EMPTY FIELDS!");
+                !StringUtils.hasText(request.getText())) throw new NotValidFieldException("EMPTY FIELDS!");
 
         Post post = new Post();
         post.setName(request.getName());
         post.setDescription(request.getDescription());
         post.setText(request.getText());
-        post.setImage("");
+        //post.setImage("");
         Optional<User> userFromDb = userRepo.findByUsername(username);
         if (userFromDb.isEmpty()) throw new NotFoundException("NOT FOUND USER WITH USERNAME = " + username + "!");
         post.setUser(userFromDb.get());
         postRepo.saveAndFlush(post);
 
-        String nameOfImage = "post" + post.getId() + ".jpg";
-        fileUploadService.storePost(request.getImage(), nameOfImage);
-        post.setImage(nameOfImage);
+        //String nameOfImage = "post" + post.getId() + ".jpg";
+        ///fileUploadService.storePost(request.getImage(), nameOfImage);
+        //post.setImage(nameOfImage);
 
         postRepo.saveAndFlush(post);
         return post;
@@ -69,7 +68,7 @@ public class PostServiceImpl implements PostService {
         return PostDto.builder()
                 .id(post.getId())
                 .name(post.getName())
-                .image("/images/"+post.getImage())
+                //.image("/images/"+post.getImage())
                 .description(post.getDescription())
                 .text(post.getText())
                 .build();

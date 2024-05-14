@@ -17,11 +17,12 @@ public class Post extends AbstractEntity{
     private String name;
     @Column(name = "description", nullable = false)
     private String description;
-    @Column(name = "image", nullable = false)
-    private String image;
     @Column(name = "text", nullable = false, length = 1000)
     private  String text;
     @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "exhibit_id")
+    private Exhibit exhibit;
 }

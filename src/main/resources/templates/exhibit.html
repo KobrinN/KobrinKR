@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+</head>
+<body>
+<header>
+    <nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{../home}">Главная</a></li>
+                <li><a th:href="@{../exhibit/all}">Экспонаты</a></li>
+                <li><a th:href="@{../logout}">Выход</a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>
+<main>
+    <article>
+        <div class="container">
+            <div class="img">
+                <img th:src="@{${exhibit.getImage()}}" alt="image">
+            </div>
+            <div class="name" th:text="${exhibit.getName()}"></div>
+        </div>
+
+        <div th:text="${exhibit.getName()}"></div>
+        <div th:utext="${exhibit.getDescription()}"></div>
+        <div th:object="${Comment}">
+            <form th:action="@{/api/v1/comment/add(id = ${exhibit.getId()})}" method="post">
+                <label for="editor"></label><textarea name="comment" id="editor"></textarea>
+                <div class="div_bottom">
+                    <button class="bottom_update">Оставить коммент!</button>
+                </div>
+
+            </form>
+        </div>
+        <table>
+            <tr th:each="comment : ${comments}">
+                <td>
+                    <div class="comment_user">
+                        <div th:text="${comment.getUsername()}"></div>
+                        <div th:text="${comment.getDate()}"></div>
+                    </div>
+
+                </td>
+                <td colspan="3">
+                    <div class="comment" th:utext="${comment.getText()}"></div>
+                </td>
+            </tr>
+        </table>
+    </article>
+</main>
+<script type="text/javascript">
+    ClassicEditor
+        .create( document.querySelector( '#editor' ), {
+            toolbar: {
+                items: [
+                    'alignment',
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'outdent',
+                    'indent',
+                    '|',
+                    'blockQuote',
+                    'insertTable',
+                    'undo',
+                    'redo'],
+                shouldNotGroupWhenFull: false
+            }
+        } )
+        .catch( error => {
+            console.log( error );
+        } );
+</script>
+</body>
+</html>

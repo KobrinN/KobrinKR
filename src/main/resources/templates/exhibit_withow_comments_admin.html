@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>🏛МУЗЕЙ🏛</title>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.3.1/classic/ckeditor.js"></script>
+
+</head>
+<body>
+<header>
+    <nav>
+        <nav>
+            <ul>
+                <li><a th:href="@{../exhibit/all}">Назад</a></li>
+                <li><a th:href="@{../exhibit/add}">Добавить</a></li>
+                <li><a th:href="@{../user/all}">Пользователи</a></li>
+                <li><a th:href="@{../logout}">Выход</a></li>
+            </ul>
+        </nav>
+    </nav>
+</header>
+<main>
+    <article>
+        <div class="container">
+            <div class="img">
+                <img th:src="@{${exhibit.getImage()}}" alt="image">
+            </div>
+            <div class="name" th:text="${exhibit.getName()}"></div>
+        </div>
+
+        <div th:text="${exhibit.getName()}"></div>
+        <div th:utext="${exhibit.getDescription()}"></div>
+        <h1>Комментов еще нет!🧐</h1>
+    </article>
+</main>
+</body>
+</html>

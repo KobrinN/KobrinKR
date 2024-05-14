@@ -22,13 +22,12 @@ public class SecurityConfig{
                 .formLogin(form -> form
                         .loginPage("/api/v1/login").permitAll()
                         .loginProcessingUrl("/api/v1/login")
-                        .defaultSuccessUrl("/api/v1/post/all", true)
+                        .defaultSuccessUrl("/api/v1/home", true)
                         .failureUrl("/api/v1/logout")
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v1/registration").permitAll()
+                        .requestMatchers("/api/v1/registration", "/api/v1/exhibit/all", "/api/v1/home").permitAll()
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/api/v1/post/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .logout(form -> form
